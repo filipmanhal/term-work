@@ -1,4 +1,5 @@
 .media {
+    z-index: 1;
     position: absolute;
     top: 80%;
     left: 50%;
@@ -6,6 +7,7 @@
 }
 
 .media li {
+    z-index: 1;
     list-style: none;
     display: inline-block;
     margin: 10px;
@@ -67,13 +69,18 @@ header nav ul li {
     position: relative;
 }
 
+/*rozbalovaci sipka*/
 header nav ul li.sub-menu:before {
     content: '\f078';
     font-family: fontAwesome;
     position: absolute;
     line-height: 50px;
-    color: #fff;
+    color: #000000;
     right: 1px;
+}
+
+header nav ul li.sub-menu:active {
+    color: #ffffff;
 }
 
 header nav ul li.active.sub-menu:before {
@@ -119,12 +126,13 @@ header nav ul li a.active {
 }
 
 .menu-toggle {
-    color: #fff;
+    color: #000000;
     float: right;
     line-height: 50px;
     font-size: 24px;
     cursor: pointer;
     display: none
+
 }
 
 @media (max-width: 860px) {
@@ -149,6 +157,7 @@ header nav ul li a.active {
         left: 0;
     }
     header nav ul {
+        z-index: 10;
         display: block;
         text-align: center;
     }
@@ -156,14 +165,17 @@ header nav ul li a.active {
         border-bottom: 0.9px solid rgb(255, 255, 255);
     }
     header nav ul li.active ul {
+        z-index: 10;
         position: relative;
-        background: #868686;
+        background: #d6d6d6;
     }
     header nav ul li ul li {
         width: 100%;
     }
 
+
     .media li {
+        z-index: 1;
         list-style: none;
         display: inline;
         margin: 5px;
