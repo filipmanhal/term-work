@@ -28,10 +28,10 @@ section {
 }
 
 section h1 {
-    font-size: 8vh;
+    font-size: 9vh;
     font-family: "Century Gothic";
-    margin-left: 20%;
-    margin-top: -100px;
+    margin-left: 60%;
+    margin-top: -170vh;
 }
 
 section, section:before {
@@ -39,7 +39,7 @@ section, section:before {
 }
 
 section::before {
-    bottom: -50vh;
+    bottom: 0;
     content: "";
     left: 0;
     position: absolute;
@@ -60,7 +60,7 @@ section * {
     letter-spacing: 0.2em;
     text-align: center;
     margin: 0;
-    padding: 17em 10em;
+    padding: 20em 0;
 }
 
 main {

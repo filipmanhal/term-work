@@ -11,8 +11,9 @@
 </header>
 
 <section id="aboutCover">
-    <h1>Kdo jsem...</h1>
+    <h1>O mně</h1>
 </section>
+
 
 <main>
     <p>Sdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
