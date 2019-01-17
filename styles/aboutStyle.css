@@ -57,7 +57,7 @@ section::before {
 
 section * {
     font-weight: normal;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     text-align: center;
     margin: 0;
     padding: 20em 0;
