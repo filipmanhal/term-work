@@ -107,6 +107,8 @@ header nav ul li ul li {
 }
 
 header nav ul li a {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
     height: 50px;
     line-height: 50px;
     padding: 0 20px;

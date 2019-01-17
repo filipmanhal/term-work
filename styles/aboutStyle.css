@@ -64,60 +64,25 @@ section * {
 }
 
 main {
+    display: inline-block;
     position: absolute;
-    color: #aa0719;
     bottom: -150vh;
 }
 
-/*
-html {
-    box-sizing: border-box;
-    overflow: hidden;
+main p {
+    font-size: 20px;
+    font-family: "Century Gothic";
+    color: #000000;
+
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-body {
-    height: 100vh;
-    margin: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    /*mobil
-    -webkit-overflow-scrolling: touch;
-
-    perspective: 1px;
-    -webkit-perspective: 1px;
+.content {
+    width: 400px;
 }
 
 img {
-    width: 100%;
+    height: 600px;
+    width: auto;
+    float: left;
+    margin-right: 15px;
 }
-header{
-    z-index: 10;
-}
-
-.parallax-group {
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-}
-
-.back {
-    /*mobil
-    -webkit-transform: translateZ(-1px) scale(2);
-    /*pomalejsi scrollovani
-    transform: translateZ(-1px) scale(2);
-    /*pomer pozadi aby bylo responzivni
-    position: relative;
-    z-index: 2;
-    top: calc(((100vh - 66.66666666666667vw) / 4) * -2);
-}
-
-.front {
-   background: #fff;
-    padding: 14em 1em;
-    position: relative;
-    z-index: 10;
-}
-*/

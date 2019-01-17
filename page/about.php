@@ -13,21 +13,24 @@
 <section id="aboutCover">
     <h1>&bdquo;O mně&ldquo;</h1>
 </section>
-	
 
 <main>
-    <p>Sdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
-        aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq
-        wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw
-        dq wd waaaaaaaaaaaaaaaaaaajdajsd
-        ajsdilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdajsd
-        ilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
-        aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
-        aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq
-        wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw
-        dq wd waaaaaaaaaaaaaaaaaaajdajsd
-        ajsdilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdaj.
-    </p>
-</main>
+    <div class="content">
+        <img id="about-profil" src="../img/about-profil.jpg">
+        <p>Sdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
+            aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq
+            wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw
+            dq wd waaaaaaaaaaaaaaaaaaajdajsd
+            ajsdilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdajsd
+            ilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
+            aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
+            aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq
+            wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw
+            dq wd waaaaaaaaaaaaaaaaaaajdajsd
+            ajsdilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdaj.
+        </p>
+    </div>
+    </main>
+
 </body>
 </html>
