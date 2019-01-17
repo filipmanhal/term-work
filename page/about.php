@@ -2,6 +2,7 @@
 <html lang="cz">
 <head>
     <?php include('headSection.html') ?>
+    <link rel="stylesheet" href="../styles/aboutStyle.css">
 </head>
 <body>
 <!--menu-->
@@ -9,25 +10,14 @@
     <?php include('mainNavbar.html') ?>
 </header>
 
-<main>
-    <h2 style="margin-top: 20%;margin-left: 10%";>O mně</h2>
-    <p></p>
-    <p></p>
-    <div style="width: 50%;margin-top: 1%;margin-left: 10%";>Lorem ipsum doterdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
-        Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
-        Lorem ipsum doterdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus,
-        augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
-        Lorem ipsum doterdum maximus, augue diam porttitor lorem,
-        et sollicitudin felis neque sit amet erat.Lorem ipsum doterdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.</div>
+<section id="AboutCover">
+    <h1>Parallax Effect</h1>
+    <p>Pure CSS // No javaScript</p>
+
+</section>>
 
 
 
-</main>
+
 </body>
 </html>
