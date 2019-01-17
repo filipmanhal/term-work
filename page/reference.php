@@ -3,7 +3,7 @@
 <head>
     <?php include('headSection.html') ?>
 </head>
-<body>
+<body style="background-color: #aa0719">
 <!--menu-->
 <header>
     <?php include('mainNavbar.html') ?>
