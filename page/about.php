@@ -11,13 +11,21 @@
 </header>
 
 <section id="AboutCover">
-    <h1>Parallax Effect</h1>
-    <p>Pure CSS // No javaScript</p>
+    <h1>Kdo jsem...</h1>
 
-</section>>
+</section>
 
-
-
-
+<main>
+    <p>aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
+        aaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq
+        wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw
+        dq wd waaaaaaaaaaaaaaaaaaajdajsd
+        ajsdilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdajsd
+        ilqwdqwdqdqwd qwdqw dq wd waaaaaaaaaaaaaaaaaaajdajsdajsdilqwdqwdqdqwd qwdqw dq wd w
+    </p>
+</main>
 </body>
+<main>
+
+</main>
 </html>
