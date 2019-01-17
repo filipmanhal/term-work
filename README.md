@@ -1,2 +1,0 @@
-# term-work
-IWWW semestralka
