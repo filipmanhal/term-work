@@ -1,3 +1,6 @@
+/****************
+*** DEFAULTS
+*****************/
 * { margin: 0px; padding: 0px; }
 
 html { height: 100%; box-sizing: border-box; }
@@ -51,39 +54,39 @@ form input:focus {
     margin: 0px auto;
 }
 /* NAVBAR */
-.navBarBlog {
+.navbar {
     margin: 0 auto;
     overflow: hidden;
     background-color: #3E606F;
     border-radius: 0px 0px 6px 6px;
 }
-.navBarBlog ul {
+.navbar ul {
     list-style-type: none;
     float: right;
 }
-.navBarBlog ul li {
+.navbar ul li {
     float: left;
     font-family: 'Noto Serif', serif;
 }
-.navBarBlog ul li a {
+.navbar ul li a {
     display: block;
     color: white;
     text-align: center;
     padding: 20px 28px;
     text-decoration: none;
 }
-.navBarBlog ul li a:hover {
+.navbar ul li a:hover {
     color: #B9E6F2;
     background-color: #334F5C;
 }
 
 /* LOGO */
-.navBarBlog .logo_div {
+.navbar .logo_div {
     float: left;
     padding-top: 5px;
     padding-left: 40px;
 }
-.navBarBlog .logo_div h1 {
+.navbar .logo_div h1 {
     color: #B9E6F2;
     font-size: 3em;
     letter-spacing: 5px;
@@ -105,12 +108,14 @@ form input:focus {
     padding: 20px 0px;
 }
 
+/* BANNER: Welcome message; */
 .banner {
     margin: 5px auto;
     min-height: 400px;
-    color: #888888;
+    color: white;
     border-radius: 5px;
-    background-image: url('../images_blog/banner.jpg');
+    background-image: url('../images/banner.jpg');
+    background-size: 100% 100%;
 }
 .banner .welcome_msg {
     width: 45%;
@@ -171,7 +176,7 @@ form input:focus {
     margin-left: 20%;
 }
 
-/*content*/
+/* CONTENT */
 .content {
     margin: 5px auto;
     border-radius: 5px;
@@ -307,6 +312,7 @@ form input:focus {
     background: #F9F9F9;
     transition: 0.1s;
 }
+
 /* NOTIFICATION MESSAGES */
 .message {
     width: 100%;

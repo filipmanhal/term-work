@@ -1,13 +1,12 @@
-<head>
 <?php  include('config.php'); ?>
 <?php  include('includes/registration_login.php'); ?>
 <?php  include('includes/head_section.php'); ?>
-<title>Manhist blog | Sign in </title>
+<title>LifeBlog | Sign in </title>
 </head>
 <body>
 <div class="container">
     <!-- Navbar -->
-    <?php include( ROOT_PATH . '/includes/navBarBlog.php'); ?>
+    <?php include(ROOT_PATH . '/includes/navbar.php'); ?>
     <!-- // Navbar -->
 
     <div style="width: 40%; margin: 20px auto;">
@@ -18,8 +17,13 @@
             <input type="password" name="password" placeholder="Password">
             <button type="submit" class="btn" name="login_btn">Login</button>
             <p>
-                Not yet a member? <a href="register.php">Sign up</a>
+                Staň se autorem blogu <a href="register.php">Registrace</a>
             </p>
         </form>
     </div>
 </div>
+<!-- // container -->
+
+<!-- Footer -->
+<?php include(ROOT_PATH . '/includes/footer.php'); ?>
+<!-- // Footer -->

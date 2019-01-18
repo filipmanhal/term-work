@@ -1,5 +1,3 @@
-<head>
-    <link href="../../styles/style.css" rel="stylesheet" type="text/css">
 <?php  include('config.php'); ?>
 <?php  include('includes/public_functions.php'); ?>
 <?php
@@ -9,13 +7,14 @@ if (isset($_GET['post-slug'])) {
 $topics = getAllTopics();
 ?>
 <?php include('includes/head_section.php'); ?>
-<title> <?php echo $post['title'] ?> | manhist's blog</title>
+<title> <?php echo $post['title'] ?> | LifeBlog</title>
 </head>
 <body>
 <div class="container">
     <!-- Navbar -->
-    <?php include( ROOT_PATH . '/includes/navBarBlog.php'); ?>
+    <?php include(ROOT_PATH . '/includes/navbar.php'); ?>
     <!-- // Navbar -->
+
     <div class="content" >
         <!-- Page wrapper -->
         <div class="post-wrapper">
@@ -56,3 +55,6 @@ $topics = getAllTopics();
         <!-- // post sidebar -->
     </div>
 </div>
+<!-- // content -->
+
+<?php include(ROOT_PATH . '/includes/footer.php'); ?>

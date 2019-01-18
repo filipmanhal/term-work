@@ -1,4 +1,3 @@
-<html>
 <head>
     <?php include('../config.php'); ?>
     <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
@@ -20,8 +19,7 @@
     <div class="action">
         <h1 class="page-title">Create/Edit Admin User</h1>
 
-
-        <form method="post" action="<?php echo BASE_URL . 'page/Blog/admin/users.php'; ?>">
+        <form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>">
 
             <!-- validation errors for the form -->
             <?php include(ROOT_PATH . '/includes/errors.php') ?>
@@ -78,12 +76,12 @@
                         <td><?php echo $admin['role']; ?></td>
                         <td>
                             <a class="fa fa-pencil btn edit"
-                               href="users.php?edit-admin=<?php echo $admin['id'] ?>"> //nevrací stránku
+                               href="users.php?edit-admin=<?php echo $admin['id'] ?>">
                             </a>
                         </td>
                         <td>
                             <a class="fa fa-trash btn delete"
-                               href='users.php?delete-admin=<?php echo $admin['id'] ?>'> //nevrací stránku
+                               href="users.php?delete-admin=<?php echo $admin['id'] ?>">
                             </a>
                         </td>
                     </tr>
