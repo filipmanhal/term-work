@@ -3,7 +3,7 @@
 <head>
     <title>Nature photos</title>
     <?php include('head-gallery.html') ?>
-    <?php include ('../../db/connection.php')?>
+    <?php include('../../dbconnection/connection.php') ?>
 </head>
 <body>
 <header>

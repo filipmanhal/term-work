@@ -113,7 +113,7 @@ if (isset($_POST['login_btn'])) {
 // escape value from form
 function esc(String $value)
 {
-    // bring the global db connect object into function
+    // bring the global dbconnection connect object into function
     global $conn;
 
     $val = trim($value); // remove empty space sorrounding string

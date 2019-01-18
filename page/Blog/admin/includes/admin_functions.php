@@ -56,7 +56,7 @@ function getAdminUsers()
 * * * * * * * * * * * * * * * * * * * * * */
 function esc(String $value)
 {
-    // bring the global db connect object into function
+    // bring the global dbconnection connect object into function
     global $conn;
     // remove empty space sorrounding string
     $val = trim($value);
