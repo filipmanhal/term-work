@@ -1,0 +1,88 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    perspective: 1px;
+    transform-style: preserve-3d ;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+header {
+    z-index: 10;
+}
+
+section {
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding: 30vw 0 5vw;
+    position: relative;
+    transform-style: inherit;
+    width: 100vw;
+}
+
+section h1 {
+    font-size: 9vh;
+    font-family: "Century Gothic";
+    margin-left: 60%;
+    margin-top: -170vh;
+}
+
+section, section:before {
+    background: 50% 50% / cover;
+}
+
+section::before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    background-image: url("../img/background/about-background.jpg");
+    background-size: cover;
+    transform-origin: center center 0;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+section * {
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin: 0;
+    padding: 20em 0;
+}
+
+main {
+    margin-left: 15%;
+    display: inline-block;
+    position: absolute;
+    bottom: -170vh;
+}
+
+main p {
+    font-size: 20px;
+    font-family: "Century Gothic";
+    color: #000000;
+
+}
+
+.content {
+}
+
+img {
+    height: 500px;
+    width: auto;
+    float: left;
+    margin-right: 15px;
+}

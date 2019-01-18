@@ -1,0 +1,185 @@
+.media {
+    z-index: 1;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-53% , -50%);
+}
+
+.media li {
+    z-index: 1;
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+}
+
+#copyleft{
+    position:absolute;
+    width:100%;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.35);
+    background-color: transparent;
+}
+/*Responzivní Navbar menu s výsuvným portfoliem */
+
+/*uvodni tapeta*/
+#homepage{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url('../img/background/background_2.JPG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+nav #headLogo{
+    display: inline-block;
+}
+/*cele menu vedle sebe*/
+nav ul {
+    display: inline-block;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+header nav {
+    float: right;
+}
+
+
+header nav ul {
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+/*korenove prvky menu*/
+header nav ul li {
+    list-style: none;
+    position: relative;
+}
+
+/*rozbalovaci sipka*/
+header nav ul li.sub-menu:before {
+    content: '\f078';
+    font-family: fontAwesome;
+    position: absolute;
+    line-height: 50px;
+    color: #000000;
+    right: 1px;
+}
+
+header nav ul li.sub-menu:active {
+    color: #ffffff;
+}
+
+header nav ul li.active.sub-menu:before {
+    content: '\f077';
+}
+
+/*menu podnabídky*/
+header nav ul li ul {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    background: rgb(255, 255, 255);
+    display: none
+}
+
+header nav ul li.active ul {
+    /* use li: hover instead */
+    display: block;
+}
+
+header nav ul li ul li {
+    display: block;
+    width: 200px;
+}
+
+header nav ul li a {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+}
+
+/*Barva textu po najetí kurzoru*/
+header nav ul li a:hover {
+    color: #fff;
+    background: #000000;
+}
+
+header nav ul li a.active {
+    background: #000000;
+}
+
+.menu-toggle {
+    color: #000000;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none
+
+}
+
+@media (max-width: 860px) {
+    header {
+        padding: 0 20px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    header nav {
+        /* use display none or left:-100% to hide the nav  */
+        /* display: none; */
+        position: absolute;
+        top: 50px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 50px);
+        background: #ffffff;
+        transition: 0.5s;
+    }
+    header nav.active {
+        left: 0;
+    }
+    header nav ul {
+        z-index: 10;
+        display: block;
+        text-align: center;
+    }
+    header nav ul li a {
+        border-bottom: 0.9px solid rgb(255, 255, 255);
+    }
+    header nav ul li.active ul {
+        z-index: 10;
+        position: relative;
+        background: #d6d6d6;
+    }
+    header nav ul li ul li {
+        width: 100%;
+    }
+
+
+    .media li {
+        z-index: 1;
+        list-style: none;
+        display: inline;
+        margin: 5px;
+    }
+}
