@@ -50,7 +50,6 @@ button[type=submit]:hover {
 .container {
     position: relative;
     margin-top: 10vh;
-    z-index: 10;
     border-radius: 5px;
     background-color: transparent;
     padding: 20px;
