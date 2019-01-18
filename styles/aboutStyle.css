@@ -64,9 +64,10 @@ section * {
 }
 
 main {
+    margin-left: 15%;
     display: inline-block;
     position: absolute;
-    bottom: -150vh;
+    bottom: -170vh;
 }
 
 main p {
@@ -77,11 +78,10 @@ main p {
 }
 
 .content {
-    width: 400px;
 }
 
 img {
-    height: 600px;
+    height: 500px;
     width: auto;
     float: left;
     margin-right: 15px;
