@@ -1,14 +1,14 @@
 <head>
-<!-- The first include should be config.php -->
-<?php require_once('config.php') ?>
-<?php require_once(ROOT_PATH . '/includes/public_functions.php') ?>
-<?php require_once(ROOT_PATH . '/includes/registration_login.php') ?>
+    <!-- The first include should be config.php -->
+    <?php require_once('config.php') ?>
+    <?php require_once(ROOT_PATH . '/includes/public_functions.php') ?>
+    <?php require_once(ROOT_PATH . '/includes/registration_login.php') ?>
 
-<!-- Retrieve all posts from database  -->
-<?php $posts = getPublishedPosts(); ?>
+    <!-- Retrieve all posts from database  -->
+    <?php $posts = getPublishedPosts(); ?>
 
-<?php require_once(ROOT_PATH . '/includes/head_section.php') ?>
-<title>LifeBlog | Home </title>
+    <?php require_once(ROOT_PATH . '/includes/head_section.php') ?>
+    <title>LifeBlog | Home </title>
 </head>
 <body>
 <header>
@@ -61,3 +61,5 @@
     <!-- footer -->
     <?php include(ROOT_PATH . '/includes/footer.php') ?>
     <!-- // footer -->
+</div>
+</body>

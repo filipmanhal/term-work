@@ -1,3 +1,4 @@
+<html>
 <head>
     <?php include('../config.php'); ?>
     <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
