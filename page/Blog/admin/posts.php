@@ -5,9 +5,8 @@
     <?php include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
     <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
 
-    <!-- Get all admin posts from DB -->
+    <!--všechny příspěvky z DB -->
     <?php $posts = getAllPosts(); ?>
-    <title>Admin | Manage Posts</title>
 </head>
 <body>
 <!-- admin navbar -->
@@ -23,25 +22,24 @@
         <?php include(ROOT_PATH . '/includes/messages.php') ?>
 
         <?php if (empty($posts)): ?>
-            <h1 style="text-align: center; margin-top: 20px;">No posts in the database.</h1>
+            <h1 style="text-align: center; margin-top: 20px;">Žádné příspěvky/h1>
         <?php else: ?>
             <table class="table">
                 <thead>
                 <th>N</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Views</th>
-                <!-- Only Admin can publish/unpublish post -->
+                <th>Autor</th>
+                <th>Titulek</th>
+                <!--pouze admin muze zverejnit prispevek)-->
                 <?php if ($_SESSION['user']['role'] == "Admin"): ?>
                     <th>
-                        <small>Publish</small>
+                        <small>Zveřejnit</small>
                     </th>
                 <?php endif ?>
                 <th>
-                    <small>Edit</small>
+                    <small>Upravit</small>
                 </th>
                 <th>
-                    <small>Delete</small>
+                    <small>Odstranit</small>
                 </th>
                 </thead>
                 <tbody>
@@ -55,9 +53,7 @@
                                 <?php echo $post['title']; ?>
                             </a>
                         </td>
-                        <td><?php echo $post['views']; ?></td>
-
-                        <!-- Only Admin can publish/unpublish post -->
+                        <!-- pouze admin muze zverejnit prispevek-->
                         <?php if ($_SESSION['user']['role'] == "Admin"): ?>
                             <td>
                                 <?php if ($post['published'] == true): ?>
@@ -88,7 +84,6 @@
             </table>
         <?php endif ?>
     </div>
-    <!-- // Display records from DB -->
 </div>
 </body>
 </html>

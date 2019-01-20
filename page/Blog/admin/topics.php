@@ -5,18 +5,18 @@
     <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
     <!-- Get all topics from DB -->
     <?php $topics = getAllTopics(); ?>
-    <title>Admin | Manage Topics</title>
+    <title>Admin | kategorie</title>
 </head>
 <body>
 <!-- admin navbar -->
 <?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
 <div class="container content">
-    <!-- Left side menu -->
+    <!--menu -->
     <?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
-    <!-- Middle form - to create and edit -->
+    <!-- formular-->
     <div class="action">
-        <h1 class="page-title">Create/Edit Topics</h1>
+        <h1 class="page-title">Vytvořit/upravit kategorii</h1>
         <form method="post" action="<?php echo BASE_URL . 'admin/topics.php'; ?>">
             <!-- validation errors for the form -->
             <?php include(ROOT_PATH . '/includes/errors.php') ?>
@@ -33,19 +33,18 @@
             <?php endif ?>
         </form>
     </div>
-    <!-- // Middle form - to create and edit -->
 
-    <!-- Display records from DB-->
+    <!-- zobrazeni dat z DB-->
     <div class="table-div">
         <!-- Display notification message -->
         <?php include(ROOT_PATH . '/includes/messages.php') ?>
         <?php if (empty($topics)): ?>
-            <h1>No topics in the database.</h1>
+            <h1>Žádná kategorie</h1>
         <?php else: ?>
             <table class="table">
                 <thead>
                 <th>N</th>
-                <th>Topic Name</th>
+                <th>Název kategorie</th>
                 <th colspan="2">Action</th>
                 </thead>
                 <tbody>
@@ -69,7 +68,6 @@
             </table>
         <?php endif ?>
     </div>
-    <!-- // Display records from DB -->
 </div>
 </body>
 </html>

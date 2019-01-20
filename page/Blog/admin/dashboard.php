@@ -9,7 +9,7 @@
 <div class="header">
     <div class="logo">
         <a href="<?php echo BASE_URL . 'admin/dashboard.php' ?>">
-            <h1>LifeBlog - Admin</h1>
+            <h1>Blog | správa</h1>
         </a>
     </div>
     <?php if (isset($_SESSION['user'])): ?>
@@ -20,23 +20,19 @@
     <?php endif ?>
 </div>
 <div class="container dashboard">
-    <h1>Welcome</h1>
     <div class="stats">
-        <a href="users.php" class="first">
-            <span>43</span> <br>
-            <span>Newly registered users</span>
+        <a href="create_post.php">
+            <span>Vytvořit příspěvek</span>
         </a>
         <a href="posts.php">
-            <span>Příspěvky</span>
+            <span>Spravovat příspěvky</span>
         </a>
-        <a>
-            <span>Komentáře</span>
+        <a href="users.php" class="first">
+            <span>Spravovat uživatele</span>
         </a>
-    </div>
-    <br><br><br>
-    <div class="buttons">
-        <a href="users.php">Vytvořit uživatele</a>
-        <a href="posts.php">Přidat příspěvek</a>
+        <a href="topics.php">
+            <span>Spravovat kategorie</span>
+        </a>
     </div>
 </div>
 </body>

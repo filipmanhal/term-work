@@ -33,6 +33,11 @@ form input {
     background: transparent;
     border: 1px solid #3E606F;
 }
+
+header {
+    position: relative;
+}
+
 form input:focus {
     outline: none;
 }
@@ -50,8 +55,8 @@ form input:focus {
     text-decoration: none;
 }
 .container {
+    margin-top: 10vh;
     width: 80%;
-    margin: 0px auto;
 }
 /* NAVBAR */
 .navbar {
@@ -110,11 +115,11 @@ form input:focus {
 
 /* BANNER: Welcome message; */
 .banner {
-    margin: 5px auto;
+    padding-top: 10%;
     min-height: 400px;
     color: white;
     border-radius: 5px;
-    background-image: url('../images/banner.jpg');
+    background-color: #1da1f2;
     background-size: 100% 100%;
 }
 .banner .welcome_msg {
@@ -164,7 +169,7 @@ form input:focus {
 }
 .banner .login_div form input {
     width: 60%;
-    color: white;
+    color: #000000;
     border: 1px solid white;
     margin: 10px auto;
     letter-spacing: 1.3px;
@@ -178,6 +183,7 @@ form input:focus {
 
 /* CONTENT */
 .content {
+    padding-top: 10vh;
     margin: 5px auto;
     border-radius: 5px;
     min-height: 400px;
@@ -196,6 +202,7 @@ form input:focus {
     width: 335px;
     margin: 9px;
     min-height: 320px;
+    max-height: 320px;
     float: left;
     border-radius: 2px;
     border: 1px solid #b3b3b3;
@@ -335,6 +342,7 @@ form input:focus {
     margin-left: 10px;
 }
 .logged_in_info {
+    margin-top: 10vh;
     text-align: right;
     padding: 10px;
 }

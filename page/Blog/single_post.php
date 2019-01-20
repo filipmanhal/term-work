@@ -7,13 +7,16 @@ if (isset($_GET['post-slug'])) {
 $topics = getAllTopics();
 ?>
 <?php include('includes/head_section.php'); ?>
-<title> <?php echo $post['title'] ?> | LifeBlog</title>
+<title> <?php echo $post['title'] ?> | Manhist</title>
 </head>
 <body>
-<div class="container">
+
+<header>
     <!-- Navbar -->
     <?php include(ROOT_PATH . '/includes/navbar.php'); ?>
     <!-- // Navbar -->
+</header>
+<div class="container">
 
     <div class="content" >
         <!-- Page wrapper -->
@@ -52,9 +55,6 @@ $topics = getAllTopics();
                 </div>
             </div>
         </div>
-        <!-- // post sidebar -->
     </div>
 </div>
-<!-- // content -->
 
-<?php include(ROOT_PATH . '/includes/footer.php'); ?>

@@ -43,13 +43,13 @@ nav ul {
 }
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 100px;
-    width: 100%;
-    box-sizing: border-box;
-    background: #ffffff;
+     position: absolute;
+     top: 0;
+     left: 0;
+     padding: 0 100px;
+     width: 100%;
+     box-sizing: border-box;
+     background: #ffffff;
 }
 
 header nav {

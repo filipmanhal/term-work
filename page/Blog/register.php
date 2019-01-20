@@ -1,16 +1,19 @@
 <?php  include('config.php'); ?>
-<!-- Source code for handling registration and login -->
+
 <?php  include('includes/registration_login.php'); ?>
 
 <?php include('includes/head_section.php'); ?>
 
-<title>LifeBlog | Sign up </title>
+<title>Manhist | Blog </title>
 </head>
 <body>
-<div class="container">
+<header>
     <!-- Navbar -->
     <?php include(ROOT_PATH . '/includes/navbar.php'); ?>
     <!-- // Navbar -->
+</header>
+<div class="container">
+
 
     <div style="width: 40%; margin: 20px auto;">
         <form method="post" action="register.php" >
@@ -27,7 +30,3 @@
         </form>
     </div>
 </div>
-<!-- // container -->
-<!-- Footer -->
-<?php include(ROOT_PATH . '/includes/footer.php'); ?>
-<!-- // Footer -->

@@ -1,20 +1,21 @@
-<?php include('config.php'); ?>
-<?php include('includes/public_functions.php'); ?>
-<?php include('includes/head_section.php'); ?>
-<?php
-// Get posts under a particular topic
-if (isset($_GET['topic'])) {
-    $topic_id = $_GET['topic'];
-    $posts = getPublishedPostsByTopic($topic_id);
-}
-?>
-<title>LifeBlog | Home </title>
+<head>
+    <?php include('config.php'); ?>
+    <?php include('includes/public_functions.php'); ?>
+    <?php include('includes/head_section.php'); ?>
+    <?php
+    // příspěvky pod kategorií
+    if (isset($_GET['topic'])) {
+        $topic_id = $_GET['topic'];
+        $posts = getPublishedPostsByTopic($topic_id);
+    }
+    ?>
 </head>
 <body>
-<div class="container">
+<header>
     <!-- Navbar -->
     <?php include(ROOT_PATH . '/includes/navbar.php'); ?>
-    <!-- // Navbar -->
+</header>
+<div class="container">
     <!-- content -->
     <div class="content">
         <h2 class="content-title">
@@ -36,10 +37,4 @@ if (isset($_GET['topic'])) {
             </div>
         <?php endforeach ?>
     </div>
-    <!-- // content -->
 </div>
-<!-- // container -->
-
-<!-- Footer -->
-<?php include(ROOT_PATH . '/includes/footer.php'); ?>
-<!-- // Footer -->

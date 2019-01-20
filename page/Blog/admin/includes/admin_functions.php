@@ -78,11 +78,11 @@ function createAdmin($request_values){
 		$role = esc($request_values['role']);
 	}
 	// form validation: ensure that the form is correctly filled
-	if (empty($username)) { array_push($errors, "Uhmm...We gonna need the username"); }
-	if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
+	if (empty($username)) { array_push($errors, "Chybí přihlašovací jméno!"); }
+	if (empty($email)) { array_push($errors, "Email je povinný"); }
 	if (empty($role)) { array_push($errors, "Role is required for admin users");}
-	if (empty($password)) { array_push($errors, "uh-oh you forgot the password"); }
-	if ($password != $passwordConfirmation) { array_push($errors, "The two passwords do not match"); }
+	if (empty($password)) { array_push($errors, "Nesprávné heslo!"); }
+	if ($password != $passwordConfirmation) { array_push($errors, "Hesla se neshodují!"); }
 	// Ensure that no user is registered twice. 
 	// the email and usernames should be unique
 	$user_check_query = "SELECT * FROM users WHERE username='$username' 
@@ -170,13 +170,10 @@ function deleteAdmin($admin_id) {
 	}
 }
 
-
-
-
 /* - - - - - - - - - - 
 -  Topics functions
 - - - - - - - - - - -*/
-// get all topics from DB
+// vrací všechny příspěvky z DB
 function getAllTopics() {
 	global $conn;
 	$sql = "SELECT * FROM topics";
@@ -184,25 +181,27 @@ function getAllTopics() {
 	$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	return $topics;
 }
+
+//vytvoření kategorie
 function createTopic($request_values){
 	global $conn, $errors, $topic_name;
 	$topic_name = esc($request_values['topic_name']);
-	// create slug: if topic is "Life Advice", return "life-advice" as slug
+    //slug: identitifátor duplicit
 	$topic_slug = makeSlug($topic_name);
-	// validate form
+	//
 	if (empty($topic_name)) { 
 		array_push($errors, "Topic name required"); 
 	}
-	// Ensure that no topic is saved twice. 
+	// ověření zda už neexistuje
 	$topic_check_query = "SELECT * FROM topics WHERE slug='$topic_slug' LIMIT 1";
 	$result = mysqli_query($conn, $topic_check_query);
 	if (mysqli_num_rows($result) > 0) { // if topic exists
 		array_push($errors, "Topic already exists");
 	}
-	// register topic if there are no errors in the form
+	// vytvoření kategorie, pokud nedošlo k erroru
 	if (count($errors) == 0) {
 		$query = "INSERT INTO topics (name, slug) 
-				  VALUES('$topic_name', '$topic_slug')";
+				  VALUES('$topic_name','$topic_slug')";
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Topic created successfully";
@@ -253,11 +252,6 @@ function deleteTopic($topic_id) {
 		exit(0);
 	}
 }
-
-
-
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 * - Returns all admin users and their corresponding roles
