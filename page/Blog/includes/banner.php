@@ -8,7 +8,7 @@
 	<div class="banner">
 		<div class="welcome_msg">
 			<p>
-			    Staň se autorem blogu.<br>
+			    Vytvoření účtu na blogu.<br>
 			</p>
 			<a href="register.php" class="btn">Registrace</a>
 		</div>

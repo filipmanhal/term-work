@@ -25,15 +25,15 @@
             <!-- overeni validace dat ve formulari -->
             <?php include(ROOT_PATH . '/includes/errors.php') ?>
 
-            <!-- if editing user, the id is required to identify that user -->
+            <!-- id uživatele při editaci -->
             <?php if ($isEditingUser === true): ?>
                 <input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
             <?php endif ?>
 
-            <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
+            <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Uživatelské jméno">
             <input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="passwordConfirmation" placeholder="Password confirmation">
+            <input type="password" name="password" placeholder="Heslo">
+            <input type="password" name="passwordConfirmation" placeholder="Ověření hesla">
             <select name="role">
                 <option value="" selected disabled>Práva</option>
                 <?php foreach ($roles as $key => $role): ?>
@@ -52,7 +52,7 @@
 
     <!-- data z DB-->
     <div class="table-div">
-        <!-- notification message -->
+        <!--message -->
         <?php include(ROOT_PATH . '/includes/messages.php') ?>
 
         <?php if (empty($admins)): ?>

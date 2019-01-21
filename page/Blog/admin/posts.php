@@ -13,12 +13,12 @@
 <?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
 
 <div class="container content">
-    <!-- Left side menu -->
+    <!-- menu -->
     <?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
-    <!-- Display records from DB-->
+    <!-- data z DB-->
     <div class="table-div" style="width: 80%;">
-        <!-- Display notification message -->
+        <!-- notifikační zpráva -->
         <?php include(ROOT_PATH . '/includes/messages.php') ?>
 
         <?php if (empty($posts)): ?>

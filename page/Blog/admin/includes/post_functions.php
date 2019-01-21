@@ -9,10 +9,8 @@ $body = "";
 $featured_image = "";
 $post_topic = "";
 
-/* - - - - - - - - - -
--  Post functions
-- - - - - - - - - - -*/
-//
+
+/*funkce příspěvku*********/
 function getAllPosts()
 {
 	global $conn;
