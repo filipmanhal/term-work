@@ -1,64 +1,14 @@
-<?php include('config.php'); ?>
-<?php include('comment/functions.php'); ?>
-<?php include('includes/public_functions.php'); ?>
-<?php
-if (isset($_GET['post-slug'])) {
-    $post = getPost($_GET['post-slug']);
-}
-$topics = getAllTopics();
-?>
-<?php include('includes/head_section.php'); ?>
-<title> <?php echo $post['title'] ?> | Manhist</title>
+<?php include('functions.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment and reply system in PHP</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
-<header>
-    <!-- Navbar -->
-    <?php include(ROOT_PATH . '/includes/navbar.php'); ?>
-    <!-- // Navbar -->
-</header>
-<div class="container">
-
-    <div class="content">
-        <!-- Page wrapper -->
-        <div class="post-wrapper">
-            <!-- full post div -->
-            <div class="full-post-div">
-                <?php if ($post['published'] == false): ?>
-                    <h2 class="post-title">Sorry... This post has not been published</h2>
-                <?php else: ?>
-                    <h2 class="post-title"><?php echo $post['title']; ?></h2>
-                    <div class="post-body-div">
-                        <?php echo html_entity_decode($post['body']); ?>
-                    </div>
-                <?php endif ?>
-            </div>
-            <!-- // full post div -->
-
-            <!-- comments section -->
-            <!--  coming soon ...  -->
-        </div>
-        <!-- // Page wrapper -->
-
-        <!-- post sidebar -->
-        <div class="post-sidebar">
-            <div class="card">
-                <div class="card-header">
-                    <h2>Topics</h2>
-                </div>
-                <div class="card-content">
-                    <?php foreach ($topics as $topic): ?>
-                        <a
-                                href="<?php echo BASE_URL . 'filtered_posts.php?topic=' . $topic['id'] ?>">
-                            <?php echo $topic['name']; ?>
-                        </a>
-                    <?php endforeach ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 post">
@@ -128,9 +78,6 @@ $topics = getAllTopics();
         </div><!-- // all comments -->
     </div>
 </div>
-
-
-
 <!-- Javascripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap Javascript -->
@@ -139,6 +86,3 @@ $topics = getAllTopics();
 <script src="scripts.js"></script>
 </body>
 </html>
-
-
-

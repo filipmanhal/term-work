@@ -23,15 +23,14 @@
 }
 /*Responzivní Navbar menu s výsuvným portfoliem */
 
-/*uvodni tapeta*/
 #homepage{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    background: url('../img/background/background_2.JPG');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background: url('../img/background/background_2.JPG') no-repeat center center fixed;
+    height: 100%;
+    background-size: cover;
+    /*background-attachment: fixed;
+    background-position: center;*/
 }
 
 nav #headLogo{
@@ -145,8 +144,6 @@ header nav ul li a.active {
         display: block;
     }
     header nav {
-        /* use display none or left:-100% to hide the nav  */
-        /* display: none; */
         position: absolute;
         top: 50px;
         left: -100%;
@@ -174,7 +171,6 @@ header nav ul li a.active {
     header nav ul li ul li {
         width: 100%;
     }
-
 
     .media li {
         z-index: 1;

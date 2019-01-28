@@ -6,6 +6,9 @@
     <!-- public -->
     <link rel="stylesheet" href="static/css/public_styling.css">
     <meta charset="UTF-8">
+    <!--comment -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css">
 
     <title>manhist blog</title>
     <link href="../../styles/style.css" rel="stylesheet" type="text/css">
