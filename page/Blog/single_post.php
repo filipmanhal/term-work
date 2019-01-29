@@ -36,13 +36,12 @@ $topics = getAllTopics();
             <!-- // full post div -->
 
             <!-- comments section -->
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 comments-section">
                         <!-- if user is not signed in, tell them to sign in. If signed in, present them with comment form -->
                         <?php if (isset($user_id)): ?>
-                            <form class="clearfix" action="post_details.php" method="post" id="comment_form">
+                            <form class="clearfix" action="comment/post_details.php" method="post" id="comment_form">
                                 <textarea name="comment_text" id="comment_text" class="form-control" cols="30"
                                           rows="3"></textarea>
                                 <button class="btn btn-primary btn-sm pull-right" id="submit_comment">Submit comment
@@ -63,7 +62,7 @@ $topics = getAllTopics();
                                 <?php foreach ($comments as $comment): ?>
                                     <!-- comment -->
                                     <div class="comment clearfix">
-                                        <img src="profile.png" alt="" class="profile_pic">
+                                        <img src="comment/profile.png" alt="" class="profile_pic">
                                         <div class="comment-details">
                                             <span class="comment-name"><?php echo getUsernameById($comment['user_id']) ?></span>
                                             <span class="comment-date"><?php echo date("F j, Y ", strtotime($comment["created_at"])); ?></span>
@@ -72,7 +71,7 @@ $topics = getAllTopics();
                                                data-id="<?php echo $comment['id']; ?>">reply</a>
                                         </div>
                                         <!-- reply form -->
-                                        <form action="post_details.php" class="reply_form clearfix"
+                                        <form action="comment/post_details.php" class="reply_form clearfix"
                                               id="comment_reply_form_<?php echo $comment['id'] ?>"
                                               data-id="<?php echo $comment['id']; ?>">
                                             <textarea class="form-control" name="reply_text" id="reply_text" cols="30"
@@ -89,7 +88,7 @@ $topics = getAllTopics();
                                                 <?php foreach ($replies as $reply): ?>
                                                     <!-- reply -->
                                                     <div class="comment reply clearfix">
-                                                        <img src="profile.png" alt="" class="profile_pic">
+                                                        <img src="comment/profile.png" alt="" class="profile_pic">
                                                         <div class="comment-details">
                                                             <span class="comment-name"><?php echo getUsernameById($reply['user_id']) ?></span>
                                                             <span class="comment-date"><?php echo date("F j, Y ", strtotime($reply["created_at"])); ?></span>
@@ -110,7 +109,6 @@ $topics = getAllTopics();
                     </div><!-- // all comments -->
                 </div>
             </div>
-
 
             <!--  coming soon ...  -->
         </div>

@@ -1,39 +1,17 @@
-
-
 <?php
-
-global $conn;
-// connect to database
-$db = mysqli_connect("localhost", "root", "", "manhistDb");
-
 // Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 // But we will assume that when a user logs in,
 // they are assigned an id in the session variable to identify them across pages
-
-$user_id = 1;
-//$user_id = mysqli_query($db, "SELECT id FROM users where id =" . $_SESSION['user_id']);
-
+$user_id = 1;  //staticky dana hodnota na uzivatele cislo 1 --------------------------------------------------------------------------------------------
+// connect to database
+$db = mysqli_connect("localhost", "root", "", "manhistDb");
 // get post with id 1 from database
-$post_query_result = mysqli_query($db, "SELECT * FROM posts where id = 1");
+$post_query_result = mysqli_query($db, "SELECT * FROM posts WHERE id=1"); //staticky dana hodnota na post cislo 1 --------------------------------------------------------------------------------------------
 $post = mysqli_fetch_assoc($post_query_result);
 
 // Get all comments from database
 $comments_query_result = mysqli_query($db, "SELECT * FROM comments WHERE post_id=" . $post['id'] . " ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($comments_query_result, MYSQLI_ASSOC);
-
-function getUserById($id)
-{
-    global $conn;
-    $sql = "SELECT * FROM users WHERE id=$id LIMIT 1";
-
-    $result = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($result);
-
-    // returns user in an array format:
-    // ['id'=>1 'username' => 'Awa', 'email'=>'a@a.com', 'password'=> 'mypass']
-    return $user;
-}
-
 
 // Receives a user id and returns the username
 function getUsernameById($id)
@@ -43,6 +21,7 @@ function getUsernameById($id)
     // return the username
     return mysqli_fetch_assoc($result)['username'];
 }
+
 // Receives a comment id and returns the username
 function getRepliesByCommentId($id)
 {
@@ -51,6 +30,7 @@ function getRepliesByCommentId($id)
     $replies = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $replies;
 }
+
 // Receives a post id and returns the total number of comments on that post
 function getCommentsCountByPostId($post_id)
 {
@@ -59,6 +39,7 @@ function getCommentsCountByPostId($post_id)
     $data = mysqli_fetch_assoc($result);
     return $data['total'];
 }
+
 // If the user clicked submit on comment form...
 if (isset($_POST['comment_posted'])) {
     global $db;
@@ -82,7 +63,7 @@ if (isset($_POST['comment_posted'])) {
 						<a class='reply-btn' href='#' data-id='" . $inserted_comment['id'] . "'>reply</a>
 					</div>
 					<!-- reply form -->
-					<form action='post_details.php' class='reply_form clearfix' id='comment_reply_form_" . $inserted_comment['id'] . "' data-id='" . $inserted_comment['id'] . "'>
+					<form action='single_post.php' class='reply_form clearfix' id='comment_reply_form_" . $inserted_comment['id'] . "' data-id='" . $inserted_comment['id'] . "'>
 						<textarea class='form-control' name='reply_text' id='reply_text' cols='30' rows='2'></textarea>
 						<button class='btn btn-primary btn-xs pull-right submit-reply'>Submit reply</button>
 					</form>
