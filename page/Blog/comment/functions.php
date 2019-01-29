@@ -1,8 +1,9 @@
 <?php
+session_start();
 // Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 // But we will assume that when a user logs in,
 // they are assigned an id in the session variable to identify them across pages
-$user_id = 1;  //staticky dana hodnota na uzivatele cislo 1 --------------------------------------------------------------------------------------------
+$user_id = $_SESSION['u_id'];  //staticky dana hodnota na uzivatele cislo 1 --------------------------------------------------------------------------------------------
 // connect to database
 $db = mysqli_connect("localhost", "root", "", "manhistDb");
 // get post with id 1 from database
