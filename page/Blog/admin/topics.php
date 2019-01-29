@@ -55,7 +55,7 @@
                         <td>
                             <a class="fa fa-pencil btn edit"
                                href="topics.php?edit-topic=<?php echo $topic['id'] ?>">
-                            </a>s
+                            </a>
                         </td>
                         <td>
                             <a class="fa fa-trash btn delete"

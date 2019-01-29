@@ -1,7 +1,6 @@
 <?php
-/* * * * * * * * * * * * * * *
-* Returns all published posts
-* * * * * * * * * * * * * * */
+
+/*vraci vsechny zverejnene prispevky*/
 function getPublishedPosts() {
     // use global $conn object in function
     global $conn;
@@ -16,21 +15,17 @@ function getPublishedPosts() {
     }
     return $final_posts;
 }
-/* * * * * * * * * * * * * * *
-* Receives a post id and
-* Returns topic of the post
-* * * * * * * * * * * * * * */
+
+/*vraci kategorii prispevku*/
 function getPostTopic($post_id){
     global $conn;
-    $sql = "SELECT * FROM topics WHERE id=
-			(SELECT topic_id FROM post_topic WHERE post_id=$post_id) LIMIT 1";
+    $sql = "SELECT * FROM topics WHERE id = (SELECT topic_id FROM post_topic WHERE post_id=$post_id) LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $topic = mysqli_fetch_assoc($result);
     return $topic;
 }
-/* * * * * * * * * * * * * * * *
-* Returns all posts under a topic
-* * * * * * * * * * * * * * * * */
+
+/*vraci vsechny zverejnene prispevky pod kategorii*/
 function getPublishedPostsByTopic($topic_id) {
     global $conn;
     $sql = "SELECT * FROM posts ps 
@@ -48,9 +43,8 @@ function getPublishedPostsByTopic($topic_id) {
     }
     return $final_posts;
 }
-/* * * * * * * * * * * * * * * *
-* Returns topic name by topic id
-* * * * * * * * * * * * * * * * */
+
+/*vraci nazev kategorie*/
 function getTopicNameById($id)
 {
     global $conn;
@@ -59,9 +53,8 @@ function getTopicNameById($id)
     $topic = mysqli_fetch_assoc($result);
     return $topic['name'];
 }
-/* * * * * * * * * * * * * * *
-* Returns a single post
-* * * * * * * * * * * * * * */
+
+/*samostany clanek*/
 function getPost($slug){
     global $conn;
     // Get single post slug
@@ -70,15 +63,19 @@ function getPost($slug){
     $result = mysqli_query($conn, $sql);
     // fetch query results as associative array.
     $post = mysqli_fetch_assoc($result);
+
+    $_SESSION['post_id'] = ($post['id']);
+
+    //$sql_id = "SELECT id FROM posts WHERE slug='$post_slug' AND published=true";
+    //$_SESSION['post_id'] = mysqli_query($conn, $sql_id);
     if ($post) {
         // get the topic to which this post belongs
         $post['topic'] = getPostTopic($post['id']);
     }
     return $post;
 }
-/* * * * * * * * * * * *
-*  Returns all topics
-* * * * * * * * * * * * */
+
+/* vraci kategorie */
 function getAllTopics()
 {
     global $conn;

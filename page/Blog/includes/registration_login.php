@@ -1,7 +1,6 @@
 <?php
 // variable declaration
-session_start();
-$user_id = 0;
+//$user_id = 0;
 $username = "";
 $email    = "";
 $errors = array();

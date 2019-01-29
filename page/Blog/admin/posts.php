@@ -22,7 +22,7 @@
         <?php include(ROOT_PATH . '/includes/messages.php') ?>
 
         <?php if (empty($posts)): ?>
-            <h1 style="text-align: center; margin-top: 20px;">Žádné příspěvky/h1>
+            <h1 style="text-align: center; margin-top: 20px;">Žádné příspěvky</h1>
         <?php else: ?>
             <table class="table">
                 <thead>

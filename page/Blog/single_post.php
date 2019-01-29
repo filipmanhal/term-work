@@ -5,6 +5,7 @@
 
 if (isset($_GET['post-slug'])) {
     $post = getPost($_GET['post-slug']);
+
 }
 $topics = getAllTopics();
 ?>
@@ -26,7 +27,7 @@ $topics = getAllTopics();
             <!-- full post div -->
             <div class="full-post-div">
                 <?php if ($post['published'] == false): ?>
-                    <h2 class="post-title">Sorry... This post has not been published</h2>
+                    <h2 class="post-title">Příspěvek nebyl zatím zveřejněn...</h2>
                 <?php else: ?>
                     <h2 class="post-title"><?php echo $post['title']; ?></h2>
                     <div class="post-body-div">
@@ -36,7 +37,7 @@ $topics = getAllTopics();
             </div>
             <!-- // full post div -->
 
-            <!-- comments section -->
+            <!-- comments -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 comments-section">
@@ -45,16 +46,16 @@ $topics = getAllTopics();
                             <form class="clearfix" action="comment/post_details.php" method="post" id="comment_form">
                                 <textarea name="comment_text" id="comment_text" class="form-control" cols="30"
                                           rows="3"></textarea>
-                                <button class="btn btn-primary btn-sm pull-right" id="submit_comment">Submit comment
+                                <button class="btn btn-primary btn-sm pull-right" id="submit_comment">Odeslat
                                 </button>
                             </form>
                         <?php else: ?>
                             <div class="well" style="margin-top: 20px;">
-                                <h4 class="text-center"><a href="#">Sign in</a> to post a comment</h4>
+                                <h4 class="text-center"><a href="#">Přihlásit se</a> pro napsání komentáře</h4>
                             </div>
                         <?php endif ?>
                         <!-- Display total number of comments on this post  -->
-                        <h2><span id="comments_count"><?php echo count($comments) ?></span> Comment(s)</h2>
+                        <h2>Komentářů: <span id="comments_count"><?php echo count($comments) ?></span> </h2>
                         <hr>
                         <!-- comments wrapper -->
                         <div id="comments-wrapper">
@@ -69,7 +70,7 @@ $topics = getAllTopics();
                                             <span class="comment-date"><?php echo date("F j, Y ", strtotime($comment["created_at"])); ?></span>
                                             <p><?php echo $comment['body']; ?></p>
                                             <a class="reply-btn" href="#"
-                                               data-id="<?php echo $comment['id']; ?>">reply</a>
+                                               data-id="<?php echo $comment['id']; ?>">reagovat</a>
                                         </div>
                                         <!-- reply form -->
                                         <form action="comment/post_details.php" class="reply_form clearfix"
@@ -77,8 +78,7 @@ $topics = getAllTopics();
                                               data-id="<?php echo $comment['id']; ?>">
                                             <textarea class="form-control" name="reply_text" id="reply_text" cols="30"
                                                       rows="2"></textarea>
-                                            <button class="btn btn-primary btn-xs pull-right submit-reply">Submit
-                                                reply
+                                            <button class="btn btn-primary btn-xs pull-right submit-reply">Odeslat
                                             </button>
                                         </form>
 
@@ -94,7 +94,6 @@ $topics = getAllTopics();
                                                             <span class="comment-name"><?php echo getUsernameById($reply['user_id']) ?></span>
                                                             <span class="comment-date"><?php echo date("F j, Y ", strtotime($reply["created_at"])); ?></span>
                                                             <p><?php echo $reply['body']; ?></p>
-                                                            <a class="reply-btn" href="#">reply</a>
                                                         </div>
                                                     </div>
                                                 <?php endforeach ?>
@@ -111,7 +110,6 @@ $topics = getAllTopics();
                 </div>
             </div>
 
-            <!--  coming soon ...  -->
         </div>
         <!-- // Page wrapper -->
 
@@ -119,7 +117,7 @@ $topics = getAllTopics();
         <div class="post-sidebar">
             <div class="card">
                 <div class="card-header">
-                    <h2>Topics</h2>
+                    <h2>Kategorie</h2>
                 </div>
                 <div class="card-content">
                     <?php foreach ($topics as $topic): ?>

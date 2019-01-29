@@ -1,24 +1,33 @@
 <?php
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
+$user_id = $_SESSION['u_id'];
+$post_id = $_SESSION['post_id'];
+?>
+
+<?php
 // Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 // But we will assume that when a user logs in,
 // they are assigned an id in the session variable to identify them across pages
-$user_id = $_SESSION['u_id'];  //staticky dana hodnota na uzivatele cislo 1 --------------------------------------------------------------------------------------------
+
+
 // connect to database
-$db = mysqli_connect("localhost", "root", "", "manhistDb");
+$conn = mysqli_connect("localhost", "root", "", "manhistDb");
 // get post with id 1 from database
-$post_query_result = mysqli_query($db, "SELECT * FROM posts WHERE id=1"); //staticky dana hodnota na post cislo 1 --------------------------------------------------------------------------------------------
+$post_query_result = mysqli_query($conn, "SELECT * FROM posts WHERE id= " . $post_id . ""); //staticky dana hodnota na post cislo 1 --------------------------------------------------------------------------------------------
 $post = mysqli_fetch_assoc($post_query_result);
 
 // Get all comments from database
-$comments_query_result = mysqli_query($db, "SELECT * FROM comments WHERE post_id=" . $post['id'] . " ORDER BY created_at DESC");
+$comments_query_result = mysqli_query($conn, "SELECT * FROM comments WHERE post_id=" . $post['id'] . " ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($comments_query_result, MYSQLI_ASSOC);
 
 // Receives a user id and returns the username
 function getUsernameById($id)
 {
-    global $db;
-    $result = mysqli_query($db, "SELECT username FROM users WHERE id=" . $id . " LIMIT 1");
+    global $conn;
+    $result = mysqli_query($conn, "SELECT username FROM users WHERE id=" . $id . " LIMIT 1");
     // return the username
     return mysqli_fetch_assoc($result)['username'];
 }
@@ -26,8 +35,8 @@ function getUsernameById($id)
 // Receives a comment id and returns the username
 function getRepliesByCommentId($id)
 {
-    global $db;
-    $result = mysqli_query($db, "SELECT * FROM replies WHERE comment_id=$id");
+    global $conn;
+    $result = mysqli_query($conn, "SELECT * FROM replies WHERE comment_id=$id");
     $replies = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $replies;
 }
@@ -35,23 +44,23 @@ function getRepliesByCommentId($id)
 // Receives a post id and returns the total number of comments on that post
 function getCommentsCountByPostId($post_id)
 {
-    global $db;
-    $result = mysqli_query($db, "SELECT COUNT(*) AS total FROM comments");
+    global $conn;
+    $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM comments");
     $data = mysqli_fetch_assoc($result);
     return $data['total'];
 }
 
 // If the user clicked submit on comment form...
 if (isset($_POST['comment_posted'])) {
-    global $db;
+    global $conn;
     // grab the comment that was submitted through Ajax call
     $comment_text = $_POST['comment_text'];
     // insert comment into database
-    $sql = "INSERT INTO comments (post_id, user_id, body, created_at, updated_at) VALUES (1, " . $user_id . ", '$comment_text', now(), null)";
-    $result = mysqli_query($db, $sql);
+    $sql = "INSERT INTO comments (post_id, user_id, body, created_at, updated_at) VALUES (" . $post_id . " , " . $user_id . " , '$comment_text', now(), null)";
+    $result = mysqli_query($conn, $sql);
     // Query same comment from database to send back to be displayed
-    $inserted_id = $db->insert_id;
-    $res = mysqli_query($db, "SELECT * FROM comments WHERE id=$inserted_id");
+    $inserted_id = $conn->insert_id;
+    $res = mysqli_query($conn, "SELECT * FROM comments WHERE id=$inserted_id");
     $inserted_comment = mysqli_fetch_assoc($res);
     // if insert was successful, get that same comment from the database and return it
     if ($result) {
@@ -82,15 +91,15 @@ if (isset($_POST['comment_posted'])) {
 }
 // If the user clicked submit on reply form...
 if (isset($_POST['reply_posted'])) {
-    global $db;
+    global $conn;
     // grab the reply that was submitted through Ajax call
     $reply_text = $_POST['reply_text'];
     $comment_id = $_POST['comment_id'];
     // insert reply into database
     $sql = "INSERT INTO replies (user_id, comment_id, body, created_at, updated_at) VALUES (" . $user_id . ", $comment_id, '$reply_text', now(), null)";
-    $result = mysqli_query($db, $sql);
-    $inserted_id = $db->insert_id;
-    $res = mysqli_query($db, "SELECT * FROM replies WHERE id=$inserted_id");
+    $result = mysqli_query($conn, $sql);
+    $inserted_id = $conn->insert_id;
+    $res = mysqli_query($conn, "SELECT * FROM replies WHERE id=$inserted_id");
     $inserted_reply = mysqli_fetch_assoc($res);
     // if insert was successful, get that same reply from the database and return it
     if ($result) {
