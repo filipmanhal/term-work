@@ -1,17 +1,39 @@
+
+
 <?php
+
+global $conn;
+// connect to database
+$db = mysqli_connect("localhost", "root", "", "manhistDb");
+
 // Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 // But we will assume that when a user logs in,
 // they are assigned an id in the session variable to identify them across pages
+
 $user_id = 1;
-// connect to database
-$db = mysqli_connect("localhost", "root", "", "manhistDb");
+//$user_id = mysqli_query($db, "SELECT id FROM users where id =" . $_SESSION['user_id']);
+
 // get post with id 1 from database
-$post_query_result = mysqli_query($db, "SELECT * FROM posts WHERE id=1");
+$post_query_result = mysqli_query($db, "SELECT * FROM posts where id = 1");
 $post = mysqli_fetch_assoc($post_query_result);
 
 // Get all comments from database
 $comments_query_result = mysqli_query($db, "SELECT * FROM comments WHERE post_id=" . $post['id'] . " ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($comments_query_result, MYSQLI_ASSOC);
+
+function getUserById($id)
+{
+    global $conn;
+    $sql = "SELECT * FROM users WHERE id=$id LIMIT 1";
+
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+    // returns user in an array format:
+    // ['id'=>1 'username' => 'Awa', 'email'=>'a@a.com', 'password'=> 'mypass']
+    return $user;
+}
+
 
 // Receives a user id and returns the username
 function getUsernameById($id)
