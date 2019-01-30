@@ -44,7 +44,6 @@
 
             <!-- zobrazeni možnosti zverejneni pouze pro Admina -->
             <?php if ($_SESSION['user']['role'] == "Admin"): ?>
-                <!-- display checkbox according to whether post has been published or not -->
                 <?php if ($published == true): ?>
                     <label for="publish">
                         Zveřejnit

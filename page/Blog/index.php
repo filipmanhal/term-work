@@ -1,7 +1,7 @@
 <head>
-    <?php require_once('config.php') ?>
-    <?php require_once(ROOT_PATH . '/includes/public_functions.php') ?>
-    <?php require_once(ROOT_PATH . '/includes/registration_login.php') ?>
+    <?php include('config.php'); ?>
+    <?php require_once('../Blog/includes/public_functions.php') ?>
+    <?php require_once('../Blog/includes/registration_login.php') ?>
 
     <!--všechny příspěvky z DB  -->
     <?php $posts = getPublishedPosts(); ?>

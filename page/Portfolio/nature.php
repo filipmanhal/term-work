@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <title>Nature photos</title>
-    <?php include('head-gallery.html') ?>
     <?php include('../../dbconnection/connection.php') ?>
+
+    <?php include('head-gallery.html') ?>
 </head>
 <body>
 <header>

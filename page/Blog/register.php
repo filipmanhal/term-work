@@ -1,4 +1,5 @@
-<?php  include('config.php'); ?>
+<?php include('config.php'); ?>
+
 
 <?php  include('includes/registration_login.php'); ?>
 

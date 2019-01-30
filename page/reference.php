@@ -13,16 +13,16 @@
     <!-- Photo Grid -->
     <div class="row">
         <div class="column">
-            <img src="../img/reference/barber.png" style="width:100%">
+            <img src="../img/reference/barber.png" style="width:30%">
         </div>
         <div class="column">
-            <img src="../img/reference/barber.png" style="width:100%">
+            <img src="../img/reference/queens.png" style="width:30%">
         </div>
         <div class="column">
-            <img src="../img/reference/barber.png" style="width:100%">
+            <img src="../img/reference/kecky.png" style="width:30%">
         </div>
         <div class="column">
-            <img src="../img/reference/barber.png" style="width:100%">
+            <img src="../img/reference/gravs-logo.png" style="width:30%">
         </div>
     </div>
 

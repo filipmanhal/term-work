@@ -1,8 +1,7 @@
 <?php
 session_start();
 // connection DB
-$conn = mysqli_connect("localhost", "root", "", "manhistDb");
-
+$conn = new mysqli("localhost", "root", "", "manhistDb");
 if (!$conn) {
     die("Error connecting to database: " . mysqli_connect_error());
 }

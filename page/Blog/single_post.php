@@ -51,7 +51,7 @@ $topics = getAllTopics();
                             </form>
                         <?php else: ?>
                             <div class="well" style="margin-top: 20px;">
-                                <h4 class="text-center"><a href="#">Přihlásit se</a> pro napsání komentáře</h4>
+                                <h4 class="text-center"><a href="login.php">Přihlásit se</a> pro napsání komentáře</h4>
                             </div>
                         <?php endif ?>
                         <!-- Display total number of comments on this post  -->

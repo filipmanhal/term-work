@@ -1,4 +1,4 @@
-<?php  include('config.php'); ?>
+<?php include('config.php'); ?>
 <?php  include('includes/registration_login.php'); ?>
 <?php  include('includes/head_section.php'); ?>
 <title>Manhist blog | Sign in </title>
@@ -20,7 +20,7 @@
             <input type="password" name="password" placeholder="Password">
             <button type="submit" class="btn" name="login_btn">Login</button>
             <p>
-                Staň se autorem blogu <a href="register.php">Registrace</a>
+                Založ si účet <a href="register.php">Registrace</a>
             </p>
         </form>
     </div>
