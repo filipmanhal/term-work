@@ -23,7 +23,7 @@ if (isset($_POST['btnsave'])) {
     } else if (empty($imgFile)) {
         $error_message = "není vybrán obrázek";
     } else {
-        $upload_dir = '../imgGallery'; // upload directory
+        $upload_dir = '../'; // upload directory
 
         $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
 
@@ -31,13 +31,13 @@ if (isset($_POST['btnsave'])) {
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
 
 // rename uploading image
-        $photo = rand(1000, 1000000) . "." . $imgExt;
+        $photo = "imgGallery/" . rand(1000, 1000000) . "." . $imgExt;
 
 // allow valid image file formats
         if (in_array($imgExt, $valid_extensions)) {
 // Check file size '5MB'
             if ($imgSize < 5000000) {
-                move_uploaded_file($tmp_dir, $upload_dir . $photo);
+                move_uploaded_file($tmp_dir, $upload_dir  . $photo);
             } else {
                 $error_message = "Sorry, your file is too large.";
             }

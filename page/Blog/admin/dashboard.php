@@ -33,10 +33,10 @@
         <a href="topics.php">
             <span>Spravovat kategorie</span>
         </a>
-        <a href="../../Portfolio/includes/add_photo.php">
+        <a href="../../../Portfolio/includes/add_photo.php">
             <span>Nahrát fotografii do portfolia </span>
         </a>
-        <a href="../../Portfolio/includes/del_photo.php">
+        <a href="../../../Portfolio/includes/del_photo.php">
             <span>Smazat fotografii z portfolia </span>
         </a>
     </div>
