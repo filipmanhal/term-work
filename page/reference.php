@@ -10,7 +10,24 @@
 </header>
 
 <main>
-    <p>Reference page </p>
+    <!-- Photo Grid -->
+    <div class="row">
+        <div class="column">
+            <img src="../img/reference/barber.png" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="../img/reference/barber.png" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="../img/reference/barber.png" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="../img/reference/barber.png" style="width:100%">
+        </div>
+    </div>
+
+</body>
+</html>
 </main>
 </body>
 </html>

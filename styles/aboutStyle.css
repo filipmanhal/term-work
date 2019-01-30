@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    color: #fff;
+    color: #ffffff;
     margin: 0;
     padding: 0;
     perspective: 1px;
@@ -38,6 +38,11 @@ section, section:before {
     background: 50% 50% / cover;
 }
 
+h2 {
+    font-family: "Century Gothic";
+    color: #000000;
+}
+
 section::before {
     bottom: 0;
     content: "";
@@ -67,7 +72,7 @@ main {
     margin-left: 15%;
     display: inline-block;
     position: absolute;
-    bottom: -170vh;
+    bottom: -160vh;
 }
 
 main p {
