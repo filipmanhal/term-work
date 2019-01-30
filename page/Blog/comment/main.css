@@ -7,12 +7,6 @@ textarea {
     margin-bottom: 10px;
 }
 
-/*post*/
-.post {
-    border: 1px solid #ccc;
-    margin-top: 10px;
-}
-
 /*comments*/
 .comments-section {
     margin-top: 10px;

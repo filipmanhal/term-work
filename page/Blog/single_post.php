@@ -43,7 +43,7 @@ $topics = getAllTopics();
                     <div class="col-md-6 col-md-offset-3 comments-section">
                         <!-- if user is not signed in, tell them to sign in. If signed in, present them with comment form -->
                         <?php if (isset($user_id)): ?>
-                            <form class="clearfix" action="comment/post_details.php" method="post" id="comment_form">
+                            <form class="clearfix" action="single_post.php" method="post" id="comment_form">
                                 <textarea name="comment_text" id="comment_text" class="form-control" cols="30"
                                           rows="3"></textarea>
                                 <button class="btn btn-primary btn-sm pull-right" id="submit_comment">Odeslat
@@ -73,7 +73,7 @@ $topics = getAllTopics();
                                                data-id="<?php echo $comment['id']; ?>">reagovat</a>
                                         </div>
                                         <!-- reply form -->
-                                        <form action="comment/post_details.php" class="reply_form clearfix"
+                                        <form action="single_post.php" class="reply_form clearfix"
                                               id="comment_reply_form_<?php echo $comment['id'] ?>"
                                               data-id="<?php echo $comment['id']; ?>">
                                             <textarea class="form-control" name="reply_text" id="reply_text" cols="30"
