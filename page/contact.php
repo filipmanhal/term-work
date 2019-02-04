@@ -16,10 +16,10 @@
 <!--kontaktni formular-->
 <div class="container">
     <form class="contact-form" action="contactform.php" method="post">
-        <input type="text" id="name" name="fullname" placeholder="Full Name">
-        <input type="text" id="mail" name="mailaddres" placeholder="Your e-mail">
-        <input type="text" id="sub" name="subject" placeholder="Subject">
-        <textarea id="msg" name="message" placeholder="Message"></textarea>
+        <input type="text" id="name" name="fullname" placeholder="Celé jméno">
+        <input type="text" id="mail" name="mailaddres" placeholder="Váš email">
+        <input type="text" id="sub" name="subject" placeholder="Předmět">
+        <textarea id="msg" name="message" placeholder="Zpráva"></textarea>
         <button type="submit" name="submit">ODESLAT</button>
     </form>
 </div>

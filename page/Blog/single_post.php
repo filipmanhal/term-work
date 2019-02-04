@@ -45,7 +45,7 @@ $comments = mysqli_fetch_all($comments_query_result, MYSQLI_ASSOC);
                     <div class="col-md-6 col-md-offset-3 comments-section">
                         <h2>Napiště komentář k příspěvku</h2>
 
-                        <!-- if user is not signed in, tell them to sign in. If signed in, present them with comment form -->
+                        <!-- pokud neni uyivatel prihlasen, musi se prihlasit-->
                         <?php if (isset($user_id)): ?>
                             <form class="clearfix" action="single_post.php" method="post" id="comment_form">
                                 <textarea name="comment_text" id="comment_text" class="form-control" cols="30"
@@ -58,7 +58,6 @@ $comments = mysqli_fetch_all($comments_query_result, MYSQLI_ASSOC);
                                 <h4 class="text-center"><a href="login.php">Přihlásit se</a> pro napsání komentáře</h4>
                             </div>
                         <?php endif ?>
-                        <!-- Display total number of comments on this post  -->
                         <hr>
                         <!-- comment sekce -->
                         <div id="comments-wrapper">
