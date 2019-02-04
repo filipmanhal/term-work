@@ -1,12 +1,12 @@
 <?php
-
 /*vraci vsechny zverejnene prispevky*/
-function getPublishedPosts() {
-    // use global $conn object in function
+function getPublishedPosts()
+{
+
     global $conn;
     $sql = "SELECT * FROM posts WHERE published=true";
     $result = mysqli_query($conn, $sql);
-    // fetch all posts as an associative array called $posts
+    // vsechny prispevky
     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $final_posts = array();
     foreach ($posts as $post) {
@@ -17,7 +17,8 @@ function getPublishedPosts() {
 }
 
 /*vraci kategorii prispevku*/
-function getPostTopic($post_id){
+function getPostTopic($post_id)
+{
     global $conn;
     $sql = "SELECT * FROM topics WHERE id = (SELECT topic_id FROM post_topic WHERE post_id=$post_id) LIMIT 1";
     $result = mysqli_query($conn, $sql);
@@ -26,7 +27,8 @@ function getPostTopic($post_id){
 }
 
 /*vraci vsechny zverejnene prispevky pod kategorii*/
-function getPublishedPostsByTopic($topic_id) {
+function getPublishedPostsByTopic($topic_id)
+{
     global $conn;
     $sql = "SELECT * FROM posts ps 
 			WHERE ps.id IN 
@@ -34,7 +36,7 @@ function getPublishedPostsByTopic($topic_id) {
 				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id 
 				HAVING COUNT(1) = 1)";
     $result = mysqli_query($conn, $sql);
-    // fetch all posts as an associative array called $posts
+    // vsechny prispevky
     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $final_posts = array();
     foreach ($posts as $post) {
@@ -55,22 +57,22 @@ function getTopicNameById($id)
 }
 
 /*samostany clanek*/
-function getPost($slug){
+function getPost($slug)
+{
     global $conn;
-    // Get single post slug
+    // slug pro samotny prispevek
     $post_slug = $_GET['post-slug'];
     $sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
     $result = mysqli_query($conn, $sql);
-    // fetch query results as associative array.
+
     $post = mysqli_fetch_assoc($result);
 
     $_SESSION['post_id'] = ($post['id']);
 
-    //$sql_id = "SELECT id FROM posts WHERE slug='$post_slug' AND published=true";
-    //$_SESSION['post_id'] = mysqli_query($conn, $sql_id);
     if ($post) {
-        // get the topic to which this post belongs
+        // kategorie prispevku
         $post['topic'] = getPostTopic($post['id']);
+
     }
     return $post;
 }
@@ -84,4 +86,5 @@ function getAllTopics()
     $topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $topics;
 }
+
 ?>

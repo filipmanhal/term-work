@@ -1,9 +1,24 @@
+/*pozadi homepage*/
+#homepage {
+    margin: 0;
+    padding: 0;
+    background: url('../img/background/background_2.JPG') no-repeat center center fixed;
+    height: 100%;
+    background-size: cover;
+}
+
+/*logo */
+nav #headLogo {
+    display: inline-block;
+}
+
+/*socialni site*/
 .media {
     z-index: 1;
     position: absolute;
     top: 80%;
     left: 50%;
-    transform: translate(-53% , -50%);
+    transform: translate(-53%, -50%);
 }
 
 .media li {
@@ -13,77 +28,53 @@
     margin: 10px;
 }
 
-#copyleft{
-    position:absolute;
-    width:100%;
+/*zatim neimplementovany*/
+#copyleft {
+    position: absolute;
+    width: 100%;
     bottom: 10px;
     left: 10px;
     color: rgba(255, 255, 255, 0.35);
     background-color: transparent;
 }
-/*Responzivní Navbar menu s výsuvným portfoliem */
 
-#homepage{
-    margin: 0;
-    padding: 0;
-    background: url('../img/background/background_2.JPG') no-repeat center center fixed;
-    height: 100%;
-    background-size: cover;
-    /*background-attachment: fixed;
-    background-position: center;*/
-}
+/*Responzivní Navbar menu s výsuvným portfoliem-------------------------- */
 
-nav #headLogo{
-    display: inline-block;
-}
 /*cele menu vedle sebe*/
 nav ul {
     display: inline-block;
 }
 
 header {
-     position: absolute;
-     top: 0;
-     left: 0;
-     padding: 0 100px;
-     width: 100%;
-     box-sizing: border-box;
-     background: #ffffff;
+    font-family: 'VT323', monospace;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    width: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+    background: #ffffff;
 }
 
 header nav {
     float: right;
 }
 
-
 header nav ul {
-
     margin: 0;
     padding: 0;
     display: flex;
 }
+
 /*korenove prvky menu*/
 header nav ul li {
     list-style: none;
     position: relative;
 }
 
-/*rozbalovaci sipka*/
-header nav ul li.sub-menu:before {
-    content: '\f078';
-    font-family: fontAwesome;
-    position: absolute;
-    line-height: 50px;
-    color: #000000;
-    right: 1px;
-}
-
 header nav ul li.sub-menu:active {
     color: #ffffff;
-}
-
-header nav ul li.active.sub-menu:before {
-    content: '\f077';
 }
 
 /*menu podnabídky*/
@@ -96,7 +87,7 @@ header nav ul li ul {
 }
 
 header nav ul li.active ul {
-    /* use li: hover instead */
+    li: hover instead;
     display: block;
 }
 
@@ -136,13 +127,16 @@ header nav ul li a.active {
 
 }
 
+/*responzivni*/
 @media (max-width: 860px) {
     header {
         padding: 0 20px;
     }
+
     .menu-toggle {
         display: block;
     }
+
     header nav {
         position: absolute;
         top: 50px;
@@ -152,24 +146,33 @@ header nav ul li a.active {
         background: #ffffff;
         transition: 0.5s;
     }
+
     header nav.active {
         left: 0;
     }
+
     header nav ul {
         z-index: 10;
         display: block;
         text-align: center;
     }
+
     header nav ul li a {
         border-bottom: 0.9px solid rgb(255, 255, 255);
     }
+
     header nav ul li.active ul {
         z-index: 10;
         position: relative;
         background: #d6d6d6;
     }
+
     header nav ul li ul li {
         width: 100%;
+    }
+
+    .media ul {
+
     }
 
     .media li {

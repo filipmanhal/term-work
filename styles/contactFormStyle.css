@@ -54,7 +54,7 @@ button[type=submit]:hover {
 .media-contact {
     z-index: 1;
     position: absolute;
-    top: 80%;
+    margin-top: 10%;
     left: 50%;
     transform: translate(-53%, -50%);
 }

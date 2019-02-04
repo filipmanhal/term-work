@@ -117,7 +117,7 @@ function createAdmin($request_values)
 }
 
 
-/*fetch admina z DB a parametr id admina*/
+/*fetch admina z DB podle id*/
 /*editace */
 function editAdmin($admin_id)
 {
@@ -150,7 +150,7 @@ function updateAdmin($request_values)
     }
     // vytvoření, pokud nedošlo k chybě
     if (count($errors) == 0) {
-        //encrypt the password (security purposes)
+        //šifrování hesla
         $password = md5($password);
 
         $query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
@@ -162,7 +162,7 @@ function updateAdmin($request_values)
     }
 }
 
-// smazání uživatele admin
+// smazání uživatele
 function deleteAdmin($admin_id)
 {
     global $conn;

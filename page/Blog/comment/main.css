@@ -4,10 +4,11 @@ form button {
 
 textarea {
     display: block;
+    width: 80%;
     margin-bottom: 10px;
 }
 
-/*comments*/
+/*komentáře*/
 .comments-section {
     margin-top: 10px;
     border: 1px solid #ccc;
@@ -31,6 +32,8 @@ textarea {
 }
 
 .comment-details {
+    margin-top: 10px;
+    font-family: sans-serif;
     width: 91.5%;
     float: left;
 }
@@ -47,7 +50,7 @@ textarea {
     border-radius: 50%;
 }
 
-/*replies*/
+/*reakce*/
 .reply {
     margin-left: 30px;
 }

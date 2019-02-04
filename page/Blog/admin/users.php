@@ -8,7 +8,7 @@
     $roles = ['Admin', 'Author'];
     ?>
     <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
-    <title>Admin | </title>
+    <title>Admin | users </title>
 </head>
 <body>
 <!-- admin navbar -->
@@ -63,7 +63,7 @@
                 <th>N</th>
                 <th>Admin</th>
                 <th>Práva</th>
-                <th colspan="2">Action</th>
+                <th colspan="2">Upravit/Odebrat</th>
                 </thead>
                 <tbody>
                 <?php foreach ($admins as $key => $admin): ?>

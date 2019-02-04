@@ -25,7 +25,6 @@
             Focení pro mě znamená hlavně svobodu a&nbsp;dokonalé spojení objevování a&nbsp;kreativity, bez které si nedokážu život představit.<br/>
             Moje nejoblíbenější žánry jsou street, portréty, příroda a&nbsp;lifestyle.<br/>
             <br/>
-            Nic na světě mě nedokáže uspokojit tak, jako když se&nbsp;mi podaří zachytit výjimečný okamžik...<br/>
 
         </p>
     </div>

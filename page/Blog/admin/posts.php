@@ -85,5 +85,9 @@
         <?php endif ?>
     </div>
 </div>
+<div class="card"><a
+    <a href="export.php" style="max-width: 20%;margin-left: 10%;" class="btn btn-primary">Export </a>
+
+</div>
 </body>
 </html>

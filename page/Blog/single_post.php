@@ -8,6 +8,11 @@ if (isset($_GET['post-slug'])) {
 
 }
 $topics = getAllTopics();
+
+$comments_query_result = mysqli_query($conn, "SELECT * FROM comments WHERE post_id=" . $post['id'] . " ORDER BY created_at DESC");
+$comments = mysqli_fetch_all($comments_query_result, MYSQLI_ASSOC);
+
+
 ?>
 <?php include('includes/head_section.php'); ?>
 <title> <?php echo $post['title'] ?> | Manhist</title>
@@ -22,7 +27,6 @@ $topics = getAllTopics();
 <div class="container">
 
     <div class="content">
-        <!-- Page wrapper -->
         <div class="post-wrapper">
             <!-- full post div -->
             <div class="full-post-div">
@@ -35,12 +39,12 @@ $topics = getAllTopics();
                     </div>
                 <?php endif ?>
             </div>
-            <!-- // full post div -->
-
             <!-- comments -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 comments-section">
+                        <h2>Napiště komentář k příspěvku</h2>
+
                         <!-- if user is not signed in, tell them to sign in. If signed in, present them with comment form -->
                         <?php if (isset($user_id)): ?>
                             <form class="clearfix" action="single_post.php" method="post" id="comment_form">
@@ -55,12 +59,11 @@ $topics = getAllTopics();
                             </div>
                         <?php endif ?>
                         <!-- Display total number of comments on this post  -->
-                        <h2>Komentářů: <span id="comments_count"><?php echo count($comments) ?></span> </h2>
                         <hr>
-                        <!-- comments wrapper -->
+                        <!-- comment sekce -->
                         <div id="comments-wrapper">
                             <?php if (isset($comments)): ?>
-                                <!-- Display comments -->
+                                <!-- zobrazení comment --------------------------------------------------------------------->
                                 <?php foreach ($comments as $comment): ?>
                                     <!-- comment -->
                                     <div class="comment clearfix">
@@ -82,7 +85,7 @@ $topics = getAllTopics();
                                             </button>
                                         </form>
 
-                                        <!-- GET ALL REPLIES -->
+                                        <!-- vsechny odpovedi -->
                                         <?php $replies = getRepliesByCommentId($comment['id']) ?>
                                         <div class="replies_wrapper_<?php echo $comment['id']; ?>">
                                             <?php if (isset($replies)): ?>
@@ -131,11 +134,6 @@ $topics = getAllTopics();
         </div>
     </div>
 </div>
-
-<!-- Javascripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap Javascript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script src="comment/scripts.js"></script>
 </body>

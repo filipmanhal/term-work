@@ -45,7 +45,7 @@
                 <thead>
                 <th>N</th>
                 <th>Název kategorie</th>
-                <th colspan="2">Action</th>
+                <th colspan="2">Upravit/Odebrat</th>
                 </thead>
                 <tbody>
                 <?php foreach ($topics as $key => $topic): ?>

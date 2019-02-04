@@ -4,7 +4,7 @@
 
     <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
     <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
-    <title>Admin | Dashboard</title>
+    <title>Admin | sprava</title>
 </head>
 <body>
 <div class="header">
@@ -34,11 +34,8 @@
         <a href="topics.php">
             <span>Spravovat kategorie</span>
         </a>
-        <a href="../../../Portfolio/includes/add_photo.php">
-            <span>Nahrát fotografii do portfolia </span>
-        </a>
-        <a href="../../../Portfolio/includes/del_photo.php">
-            <span>Smazat fotografii z portfolia </span>
+        <a href="add_photo.php">
+            <span>Spravovat portfolium </span>
         </a>
     </div>
 </div>

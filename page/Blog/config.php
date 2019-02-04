@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 // connection DB
 $conn = new mysqli("localhost", "root", "", "manhistDb");

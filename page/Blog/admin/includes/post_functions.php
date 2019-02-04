@@ -47,7 +47,6 @@ function getPostAuthorById($user_id)
 	}
 }
 
-
 /*Příspěvek*/
 
 // pro možnost Vytvořit příspěvek
@@ -86,10 +85,10 @@ function createPost($request_values)
 		if (empty($title)) { array_push($errors, "Titulek příspěvku je povinný!"); }
 		if (empty($body)) { array_push($errors, "Chybí text příspěvku!"); }
 		if (empty($topic_id)) { array_push($errors, "Kategorie je povinná!"); }
-		// Get image name
+		//nazev img
 	  	$featured_image = $_FILES['featured_image']['name'];
 	  	if (empty($featured_image)) { array_push($errors, "Příspěvek musí mít úvodní obrázek!"); }
-	  	// image file directory
+	  	// adresar pro uvodni img k prispevku
 	  	$target = "../static/images_blog/" . basename($featured_image);
 	  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 	  		array_push($errors, "Nepodařilo se nahrát obrázek.");
@@ -108,22 +107,18 @@ function createPost($request_values)
 			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES(1, '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
 			if(mysqli_query($conn, $query)){ // if post created successfully
 				$inserted_post_id = mysqli_insert_id($conn);
-				// create relationship between post and topic
+				// vazba mezi kategorii a prispevkem
 				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
 				mysqli_query($conn, $sql);
 
-				$_SESSION['message'] = "Post created successfully";
+				$_SESSION['message'] = "Příspěvek byl úspěšně vytvořen";
 				header('location: posts.php');
 				exit(0);
 			}
 		}
 	}
 
-	/* * * * * * * * * * * * * * * * * * * * *
-	* - Takes post id as parameter
-	* - Fetches the post from database
-	* - sets post fields on form for editing
-	* * * * * * * * * * * * * * * * * * * * * */
+//editace prispevku
 	function editPost($role_id)
 	{
 		global $conn, $title, $post_slug, $body, $published, $isEditingPost, $post_id;
@@ -146,14 +141,12 @@ function createPost($request_values)
 		if (isset($request_values['topic_id'])) {
 			$topic_id = esc($request_values['topic_id']);
 		}
-		// create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
+		//slug: identifikator prispevku(nazev)
 		$post_slug = makeSlug($title);
 
-		if (empty($title)) { array_push($errors, "Post title is required"); }
-		if (empty($body)) { array_push($errors, "Post body is required"); }
-		// if new featured image has been provided
+		if (empty($title)) { array_push($errors, "Titulek příspěvku chybí"); }
+		if (empty($body)) { array_push($errors, "Text příspěvku chybí"); }
 		if (isset($_POST['featured_image'])) {
-			// Get image name
 		  	$featured_image = $_FILES['featured_image']['name'];
 		  	// adresář pro obrázky k příspěvkům
 		  	$target = "../static/images/" . basename($featured_image);
@@ -162,14 +155,13 @@ function createPost($request_values)
 		  	}
 		}
 
-		// register topic if there are no errors in the form
+		// vytvoreni, pokud nedojde k chybe
 		if (count($errors) == 0) {
 			$query = "UPDATE posts SET title='$title', slug='$post_slug', views=0, image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$post_id";
-			// attach topic to post on post_topic table
-			if(mysqli_query($conn, $query)){ // if post created successfully
+			if(mysqli_query($conn, $query)){
 				if (isset($topic_id)) {
 					$inserted_post_id = mysqli_insert_id($conn);
-					// create relationship between post and topic
+					// relace kategorie a prispevku
 					$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
 					mysqli_query($conn, $sql);
 					$_SESSION['message'] = "Příspěvek byl vytvořen";
@@ -201,7 +193,7 @@ function createPost($request_values)
 			$message = "Příspěvek je zveřejněný";
 			$post_id = $_GET['publish'];
 		} else if (isset($_GET['unpublish'])) {
-			$message = "Příspěvek je zveřejněný";
+			$message = "Příspěvek není zveřejněný";
 			$post_id = $_GET['unpublish'];
 		}
 		togglePublishPost($post_id, $message);

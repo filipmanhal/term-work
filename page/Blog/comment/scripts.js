@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    // When user clicks on submit comment to add comment under post
+    // po odeslání komentáře
     $(document).on('click', '#submit_comment', function (e) {
         e.preventDefault();
         var comment_text = $('#comment_text').val();
         var url = $('#comment_form').attr('action');
-        // Stop executing if not value is entered
+        // pokud je komentar prazdny
         if (comment_text === "") return;
         $.ajax({
             url: url,
@@ -25,18 +25,16 @@ $(document).ready(function () {
             }
         });
     });
-    // When user clicks on submit reply to add reply under comment
+    // volba reakce na komentar
     $(document).on('click', '.reply-btn', function (e) {
         e.preventDefault();
-        // Get the comment id from the reply button's data-id attribute
+        // id komentare
         var comment_id = $(this).data('id');
-        // show/hide the appropriate reply form (from the reply-btn (this), go to the parent element (comment-details)
-        // and then its siblings which is a form element with id comment_reply_form_ + comment_id)
+
         $(this).parent().siblings('form#comment_reply_form_' + comment_id).toggle(500);
         $(document).on('click', '.submit-reply', function (e) {
             e.preventDefault();
-            // elements
-            var reply_textarea = $(this).siblings('textarea'); // reply textarea element
+            var reply_textarea = $(this).siblings('textarea');
             var reply_text = $(this).siblings('textarea').val();
             var url = $(this).parent().attr('action');
             $.ajax({
@@ -49,7 +47,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     if (data === "error") {
-                        alert('There was an error adding reply. Please try again');
+                        alert('Chyba pri odeslani komentare');
                     } else {
                         $('.replies_wrapper_' + comment_id).append(data);
                         reply_textarea.val('');

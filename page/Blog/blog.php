@@ -9,23 +9,24 @@
     <?php require_once(ROOT_PATH . '/includes/head_section.php') ?>
     <title>Manhist | Blog </title>
 </head>
-<body>
 <header>
     <!-- navbar -->
     <?php include(ROOT_PATH . '/includes/navbar.php') ?>
 </header>
 
-<div class="container">
-    <!-- login a registrace-->
-    <?php include(ROOT_PATH . '/includes/banner.php') ?>
+<body>
 
+<!-- login a registrace-->
+<?php include(ROOT_PATH . '/includes/banner.php') ?>
+
+<div class="container">
     <!--obsah uvodni stranky blogu-->
     <div class="content">
         <h2 class="content-title">Příspěvky</h2>
         <hr>
         <!--zobrazeni vsech prispevku-->
         <?php foreach ($posts as $post): ?>
-            <div class="post" style="margin-left: 20px;">
+            <div class="post" style="margin-left: 20px; margin-right: 20px">
                 <img src="<?php echo BASE_URL . '/static/images_blog/' . $post['image']; ?>" class="post_image" alt="">
                 <?php if (isset($post['topic']['name'])): ?>
                     <a

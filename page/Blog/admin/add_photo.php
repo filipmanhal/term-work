@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+
+<?php include('../config.php'); ?>
+<?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+</head>
+<!-- admin navbar -->
+
 <?php
 /**
  * Created by PhpStorm.
@@ -6,10 +15,24 @@
  * Time: 13:06
  */
 error_reporting(~E_NOTICE); // avoid notice
-require_once('dbconfig.php');
+$DB_HOST = 'localhost';
+$DB_USER = 'root';
+$DB_PASS = '';
+$DB_NAME = 'manhistDb';
+
+try {
+    $db = new PDO("mysql:host={$DB_HOST};dbname={$DB_NAME}", $DB_USER, $DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
+
+define('ROOT_PATH', realpath(dirname(__FILE__)));
+define('BASE_URL', 'http://localhost/manhistWeb/page/Blog/');
+
 if (isset($_POST['btnsave'])) {
-    $titulek = $_POST['imgtitle'];// boxer name
-    $categorie = $_POST['imgcat'];// boxer weight
+    $titulek = $_POST['imgtitle'];// titulek fotky
+    $categorie = $_POST['imgcat'];// kategorie fotky
 
     $imgFile = $_FILES['bimage']['name'];
     $tmp_dir = $_FILES['bimage']['tmp_name'];
@@ -23,29 +46,28 @@ if (isset($_POST['btnsave'])) {
     } else if (empty($imgFile)) {
         $error_message = "není vybrán obrázek";
     } else {
-        $upload_dir = '../'; // upload directory
+        $upload_dir = '../../Portfolio/'; // adresar pro upload fotky
 
         $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
 
-// valid image extensions
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+// validace format
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
 
-// rename uploading image
+// random cislo fotky
         $photo = "imgGallery/" . rand(1000, 1000000) . "." . $imgExt;
 
-// allow valid image file formats
         if (in_array($imgExt, $valid_extensions)) {
-// Check file size '5MB'
+// kontrola velikosti mensi nez 5 MB
             if ($imgSize < 5000000) {
-                move_uploaded_file($tmp_dir, $upload_dir  . $photo);
+                move_uploaded_file($tmp_dir, $upload_dir . $photo);
             } else {
-                $error_message = "Sorry, your file is too large.";
+                $error_message = "Fotografie je příliš veliká";
             }
         } else {
             $error_message = "Pouze JPG, JPEG, PNG, GIF";
         }
     }
-// if no error occured, continue ....
+// nahrani fotky pokud nedoslo k chybe
     if (!isset($error_message)) {
         $statement = $db->prepare('INSERT INTO portfolio(title,cat,img,shared) VALUES(:ptitle, :pcat, :pimg, now())');
         $statement->bindParam(':ptitle', $titulek);
@@ -53,28 +75,26 @@ if (isset($_POST['btnsave'])) {
         $statement->bindParam(':pimg', $photo);
 
         if ($statement->execute()) {
-            $successMSG = "new record succesfully inserted ...";
-            header("refresh:2;index.php"); // redirects image view page after 2 seconds.
+            $successMSG = "fotka úspěšně vložena";
+            header("refresh:2;photos.php"); // zobrazeni vsech fotek po 2s
         } else {
-            $error_message = "error while inserting....";
+            $error_message = "chyba při vkládání fotky";
         }
     }
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet" type="text/css"/>-->
-</head>
+
 <body>
+<!-- admin navbar -->
+<?php include('../../Blog/admin/includes/navbar.php') ?>
+
 <div class="container">
+    <!--menu -->
+    <?php include('../../Blog/admin/includes/menu.php') ?>
+
     <div class="page-header">
         <h1>Nahrát novou fotografii</h1>
-        <a class="btn btn-primary" href="index.php">Zobrazit všechny </a>
+        <a class="btn btn-primary" href="photos.php">Zobrazit všechny </a>
     </div>
     <?php
     if (isset($error_message)) {
@@ -96,12 +116,12 @@ if (isset($_POST['btnsave'])) {
         <table class="table table-bordered table-responsive micro">
             <tr>
                 <td><label class="control-label">title</label></td>
-                <td><input class="form-control" type="text" name="imgtitle" placeholder="Enter Name"
+                <td><input class="form-control" type="text" name="imgtitle" placeholder="Název fotografie"
                            value="<?php echo $titulek; ?>"/></td>
             </tr>
             <tr>
                 <td><label class="control-label">cat</label></td>
-                <td><input class="form-control" type="text" name="imgcat" placeholder="Weight Category"
+                <td><input class="form-control" type="text" name="imgcat" placeholder="Kategorie fotografie"
                            value="<?php echo $categorie; ?>"/></td>
             </tr>
             <tr>
@@ -116,18 +136,5 @@ if (isset($_POST['btnsave'])) {
         </table>
     </form>
 </div>
-<!--
-<!-- Latest compiled and minified JavaScript    ->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>-->
 </body>
 </html>
