@@ -1,0 +1,24 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 550px;
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+.col-sm {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+.page-header {
+    text-align: center;
+}
+
+.micro {
+    max-width: 490px;
+    margin: auto;
+    margin-top: 15px;
+}
